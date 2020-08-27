@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+  app:
+     image: node:11
+     ports:
+       - "3004:3004"
+     working_dir: /usr/src/cotizador01/
+     restart: always
+     volumes:
+       - .:/usr/src/caltia
+     command: bash -c "npm install && npm start"
+     environment:
+       - CAL_DB_USERNAME=caltia_admin
+       - CAL_DB_PASSWORD=12345
+       - CAL_DB_NAME=caltia_caltia
+       - CAL_DB_PORT=5432
+       - CAL_DB_HOST=db
+       - APP_ADMIN_EMAIL=admin@admin.com
+       - APP_ADMIN_PASS=12345
+       - APP_URL=http://198.101.187.112:3004
+       - APP_PORT=3004
