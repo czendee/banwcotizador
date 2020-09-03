@@ -429,7 +429,7 @@ app.get("/banwireapi/cotizaciones/:name", function(req, res) {
 
 app.get("/banwireapi/cotizaciones/:numero", function(req, res) {
   console.log("consulta cotizaciones por numero 1 si");
-  db.collection(BANWIRE_COTIZACIONES_COLLECTION).find({ "name": new ObjectID(req.params.numero) }, function(err, doc) {
+  db.collection(BANWIRE_COTIZACIONES_COLLECTION).find({ "numero": new ObjectID(req.params.numero) }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Fallo obtener cotizacion");
     } else {
@@ -440,7 +440,7 @@ app.get("/banwireapi/cotizaciones/:numero", function(req, res) {
 
 app.get("/banwireapi/cotizaciones/bynumero", function(req, res) {
   console.log("consulta cotizaciones por numero 1 si");
-  db.collection(BANWIRE_COTIZACIONES_COLLECTION).find({ "name": new ObjectID(req.params.numero) }, function(err, doc) {
+  db.collection(BANWIRE_COTIZACIONES_COLLECTION).find({ "numero": new ObjectID(req.params.numero) }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Fallo obtener cotizacion");
     } else {
